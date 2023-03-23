@@ -1,0 +1,66 @@
+"""bankapp and user interface"""
+class Bank:
+    def __init__(self, bank_name):
+        self.bank_name = bank_name
+        self.accounts = []
+
+    def open_account(self, account_type, account_holder_name, initial_balance):
+        pass
+
+    def search_account(self, account_number):
+        pass
+
+class Account:
+    account_count = 0
+
+def __init__(self, account_holder_name, initial_balance):
+    self.account_number = Account.account_count
+    Account.account_count += 1
+    self.account_holder_name = account_holder_name
+    self.current_balance = initial_balance
+
+
+    def get_account_number(self):
+        pass
+
+    def get_account_holder_name(self):
+        pass
+
+    def get_current_balance(self):
+        pass
+
+    def deposit(self, amount):
+        pass
+
+    def withdraw(self, amount):
+        pass
+
+class SavingsAccount(Account):
+    def __init__(self, account_holder_name, initial_balance):
+        pass
+
+    def withdraw(self, amount):
+        pass
+
+class ChequingAccount(Account):
+    def __init__(self, account_holder_name, initial_balance, overdraft_allowed=False):
+        pass
+
+    def withdraw(self, amount):
+        pass
+
+class Program:
+    def __init__(self):
+        pass
+
+    def show_main_menu(self):
+        pass
+
+    def open_account(self):
+        pass
+
+    def select_account(self):
+        pass
+
+    def show_account_menu(self, account):
+        pass
