@@ -5,10 +5,24 @@ class Bank:
         self.accounts = []
 
     def open_account(self, account_type, account_holder_name, initial_balance):
-        pass
+        if account_type == "SavingsAccount":
+            account = SavingsAccount(account_holder_name, initial_balance)
+        elif account_type == "ChequingAccount":
+            account = ChequingAccount(account_holder_name, initial_balance)
+        else:
+            raise ValueError("Invalid account type")
+
+        self.accounts.append(account)
+        return account
 
     def search_account(self, account_number):
-        pass
+        for account in self.accounts:
+            if account.get_account_number() == account_number:
+                return account
+        return None
+
+
+
 
 class Account:
     account_count = 0
