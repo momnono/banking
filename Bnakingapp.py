@@ -35,19 +35,23 @@ def __init__(self, account_holder_name, initial_balance):
 
 
     def get_account_number(self):
-        pass
+        return self.account_number
 
     def get_account_holder_name(self):
-        pass
+        return self.account_holder_name
 
     def get_current_balance(self):
-        pass
+        return self.current_balance
 
     def deposit(self, amount):
-        pass
+        self.current_balance += amount
 
     def withdraw(self, amount):
-        pass
+        if amount <= self.current_balance:
+            self.current_balance -= amount
+        else:
+            raise ValueError("Insufficient balance")
+
 
 class SavingsAccount(Account):
     minimum_balance = 1000
@@ -57,14 +61,22 @@ class SavingsAccount(Account):
 
 
     def withdraw(self, amount):
-        pass
+        if self.current_balance - amount >= SavingsAccount.minimum_balance:
+            super().withdraw(amount)
+        else:
+            raise ValueError("Minimum balance not there")
+
 
 class ChequingAccount(Account):
     def __init__(self, account_holder_name, initial_balance, overdraft_allowed=False):
-        pass
+        super().__init__(account_holder_name, initial_balance)
+        self.overdraft_allowed = overdraft_allowed
 
     def withdraw(self, amount):
-        pass
+        if self.overdraft_allowed or amount <= self.current_balance:
+            self.current_balance -= amount
+        else:
+            raise ValueError("Insufficient balance")
 
 class Program:
     def __init__(self):
