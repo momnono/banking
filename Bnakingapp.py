@@ -36,8 +36,11 @@ def __init__(self, account_holder_name, initial_balance):
         pass
 
 class SavingsAccount(Account):
+    minimum_balance = 1000
+
     def __init__(self, account_holder_name, initial_balance):
-        pass
+        super().__init__(account_holder_name, initial_balance)
+
 
     def withdraw(self, amount):
         pass
